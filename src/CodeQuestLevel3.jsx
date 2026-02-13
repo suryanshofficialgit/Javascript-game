@@ -130,7 +130,8 @@ Create a class called 'Warrior' with:
   - A method called 'status()' that returns the string: '[name] has [hp] HP'
 Create one Warrior instance and call .status(), logging the result."`,
     task: "Write a Warrior class with constructor(name, hp) and status() method — instantiate and log .status()",
-    hint: "class Warrior {\n  constructor(name, hp) {\n    this.name = name;\n    this.hp = hp;\n  }\n  status() {\n    return `${this.name} has ${this.hp} HP`;\n  }\n}\nconst w = new Warrior('Kael', 200);\nconsole.log(w.status());",
+    // eslint-disable-next-line no-template-curly-in-string
+    hint: "class Warrior {\n  constructor(name, hp) {\n    this.name = name;\n    this.hp = hp;\n  }\n  status() {\n    return `\${this.name} has \${this.hp} HP`;\n  }\n}\nconst w = new Warrior('Kael', 200);\nconsole.log(w.status());",
     concept: "Classes",
     conceptDesc: "Classes are blueprints for objects. The constructor runs when you call 'new ClassName()'. Methods are shared across all instances automatically.",
     validate: (code) =>
@@ -142,7 +143,8 @@ Create one Warrior instance and call .status(), logging the result."`,
       /console\.log/.test(code),
     expectedOutput: '> "Kael has 200 HP"',
     successStory: '"The Citadel stands strong!" the Architect cheers. "Classes are the foundation of Object-Oriented Programming. Every React component you\'ll ever write is built on this exact pattern."',
-    starterCode: "class Warrior {\n  constructor(name, hp) {\n    this.name = name;\n    this.hp = hp;\n  }\n  status() {\n    return `${this.name} has ${this.hp} HP`;\n  }\n}\n\nconst w = new Warrior('Kael', 200);\nconsole.log(",
+    // eslint-disable-next-line no-template-curly-in-string
+    starterCode: "class Warrior {\n  constructor(name, hp) {\n    this.name = name;\n    this.hp = hp;\n  }\n  status() {\n    return `\${this.name} has \${this.hp} HP`;\n  }\n}\n\nconst w = new Warrior('Kael', 200);\nconsole.log(",
   },
   {
     id: 7,
@@ -183,7 +185,8 @@ Combine your skills in one challenge:
   5. Log hero.report()
 This is the final test. Classes + Arrays + .reduce() + Template Literals — all at once."`,
     task: "Build a Hero class with average() using .reduce() and report() using template literal — log hero.report()",
-    hint: "class Hero {\n  constructor(name, scores) {\n    this.name = name;\n    this.scores = scores;\n  }\n  average() {\n    return this.scores.reduce((a, b) => a + b, 0) / this.scores.length;\n  }\n  report() {\n    return `${this.name}: avg ${this.average()}`;\n  }\n}\nconst hero = new Hero('Aria', [80, 90, 100, 70]);\nconsole.log(hero.report());",
+    // eslint-disable-next-line no-template-curly-in-string
+    hint: "class Hero {\n  constructor(name, scores) {\n    this.name = name;\n    this.scores = scores;\n  }\n  average() {\n    return this.scores.reduce((a, b) => a + b, 0) / this.scores.length;\n  }\n  report() {\n    return `\${this.name}: avg \${this.average()}`;\n  }\n}\nconst hero = new Hero('Aria', [80, 90, 100, 70]);\nconsole.log(hero.report());",
     concept: "Grand Finale: Classes + reduce() + Template Literals",
     conceptDesc: "This combines everything: OOP classes, array methods, and template literals — the exact patterns used in real-world JavaScript applications every single day.",
     validate: (code) =>
@@ -227,6 +230,7 @@ export default function CodeQuestLevel3({ onRestart }) {
       if (i > text.length) clearInterval(interval);
     }, 15);
     return () => clearInterval(interval);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [chapter]);
 
   const handleRun = () => {
@@ -270,7 +274,6 @@ export default function CodeQuestLevel3({ onRestart }) {
   const accent     = bossMode ? "#ff4422" : "#e05020";
   const accentDim  = bossMode ? "rgba(255,60,30,0.18)" : "rgba(200,70,20,0.14)";
   const accentBdr  = bossMode ? "rgba(255,80,40,0.5)"  : "rgba(200,80,30,0.3)";
-  const trailColor = bossMode ? "#ff4422" : "#e07030";
 
   return (
     <div style={{

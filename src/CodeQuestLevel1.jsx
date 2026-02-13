@@ -113,6 +113,7 @@ export default function CodeQuestLevel1({ onNextLevel }) {
       if (i > text.length) clearInterval(interval);
     }, 18);
     return () => clearInterval(interval);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [chapter]);
 
   const handleRun = () => {

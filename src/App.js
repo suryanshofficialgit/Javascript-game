@@ -1,9 +1,8 @@
 import { useState } from "react";
 import CodeQuestLevel1 from "./CodeQuestLevel1";
-
 import CodeQuestLevel2 from "./CodeQuestLevel2";
-
 import CodeQuestLevel3 from "./CodeQuestLevel3";
+
 export default function App() {
   const [level, setLevel] = useState(1);
 

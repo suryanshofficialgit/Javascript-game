@@ -140,9 +140,10 @@ Template literals use backticks and \${} to embed variables directly into string
 Make an object called 'hero' with name and level, then log:
 'Hero [name] has reached level [level]!'"`,
     task: "Create a hero object, then use a template literal to log their name and level",
-    hint: "let hero = { name: 'Aria', level: 10 };\nconsole.log(`Hero ${hero.name} has reached level ${hero.level}!`);",
+    // eslint-disable-next-line no-template-curly-in-string
+    hint: "let hero = { name: 'Aria', level: 10 };\nconsole.log(`Hero \${hero.name} has reached level \${hero.level}!`);",
     concept: "Template Literals + Objects",
-    conceptDesc: "Template literals (backticks ` `) let you embed any JS expression with ${} inside a string — clean and readable!",
+    conceptDesc: "Template literals (backticks) let you embed any JS expression with dollar-brace syntax inside a string — clean and readable!",
     validate: (code) =>
       /let\s+hero\s*=\s*\{/.test(code) &&
       /name\s*:/.test(code) &&
@@ -151,7 +152,8 @@ Make an object called 'hero' with name and level, then log:
       /console\.log/.test(code),
     expectedOutput: '> "Hero Aria has reached level 10!"',
     successStory: '"Magnificent!" the Chronicler seals the scroll with wax. "You\'ve combined objects AND template literals — this is real-world JavaScript. Every modern web app uses exactly this pattern!"',
-    starterCode: "// Create your hero!\nlet hero = {\n  name: 'Aria',\n  level: 10\n};\n\n// Write their chronicle!\nconsole.log(`Hero ${hero.name}",
+    // eslint-disable-next-line no-template-curly-in-string
+    starterCode: "// Create your hero!\nlet hero = {\n  name: 'Aria',\n  level: 10\n};\n\n// Write their chronicle!\nconsole.log(`Hero \${hero.name}",
   },
 ];
 
@@ -178,6 +180,7 @@ export default function CodeQuestLevel2({ onRestart, onNextLevel }) {
       if (i > text.length) clearInterval(interval);
     }, 16);
     return () => clearInterval(interval);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [chapter]);
 
   const handleRun = () => {
@@ -357,8 +360,8 @@ export default function CodeQuestLevel2({ onRestart, onNextLevel }) {
                   alignItems: "center",
                   gap: "12px",
                 }}
-                onMouseOver={e => { e.currentTarget.style.boxShadow = "0 0 60px rgba(220,80,20,0.7)"; e.currentTarget.style.transform = "scale(1.05)"; }}
-                onMouseOut={e => { e.currentTarget.style.boxShadow = "0 0 30px rgba(200,60,20,0.3)"; e.currentTarget.style.transform = "scale(1)"; }}
+                onMouseEnter={e => { e.currentTarget.style.boxShadow = "0 0 60px rgba(220,80,20,0.7)"; e.currentTarget.style.transform = "scale(1.05)"; }}
+                onMouseLeave={e => { e.currentTarget.style.boxShadow = "0 0 30px rgba(200,60,20,0.3)"; e.currentTarget.style.transform = "scale(1)"; }}
               >
                 <span style={{ fontSize: "1.3rem" }}>🌋</span>
                 Enter Level 3
